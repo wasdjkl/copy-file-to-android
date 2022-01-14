@@ -1,4 +1,4 @@
-# Copy File to Android
+# Copy File to Android Device
 
 ## Install
 
