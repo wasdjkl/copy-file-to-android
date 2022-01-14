@@ -8,7 +8,7 @@
   <version>0.0.1</version>
 
   <!-- Text to display as name on Preferences/Settings | Plugin page -->
-  <name>Copy File to Android Device / 复制文件到安卓</name>
+  <name>Copy File to Android Device / 复制文件到安卓设备</name>
 
   <!-- Indicate this plugin can be loaded in all IntelliJ Platform-based products. -->
   <depends>com.intellij.modules.platform</depends>
@@ -16,9 +16,9 @@
   <!-- Text to display as description on Preferences/Settings | Plugin page -->
   <description>
     <![CDATA[
-      Copy file to Android devices, Shortcut keys shift+alt+c.
+      Copy file to Android devices, Shortcut keys ctrl+shift+c TAB, control button3 doubleClick.
       <br>
-      复制文件到 Android 设备，快捷键 shift+alt+c。
+      复制文件到 Android 设备，键盘快捷键 ctrl+shift+c TAB,鼠标快捷键 ctrl + 双击鼠标右键。
     ]]>
   </description>
   <change-notes>
@@ -34,6 +34,10 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <notificationGroup id="Copy File to Android" displayType="BALLOON"/>
+    <projectConfigurable id="Copy File to Android Settings"
+                       displayName="Copy File to Android Settings"
+                       instance="com.wasdjkl.pushfile.settings.AppSettingsConfigurable"/>
+    <applicationService serviceImplementation="com.wasdjkl.pushfile.settings.AppSettingsState"/>
   </extensions>
 
   <!-- Declare the default resource location for localizing menu strings -->
@@ -41,11 +45,10 @@
 
   <actions>
     <action id="com.wasdjkl.pushfile.action.Push" class="com.wasdjkl.pushfile.action.Push">
-      <add-to-group group-id="EditorPopupMenu" anchor="before" relative-to-action="EditorPaste"/>
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-      <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="ReplaceInPath"/>
-      <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="control shift C"/>
+      <add-to-group group-id="EditorPopupMenu" anchor="last" />
+      <add-to-group group-id="ProjectViewPopupMenu" anchor="last" />
+      <mouse-shortcut keymap="$default" keystroke="control button3 doubleClick" />
+      <keyboard-shortcut keymap="$default" first-keystroke="control shift C" second-keystroke="TAB" />
     </action>
   </actions>
 

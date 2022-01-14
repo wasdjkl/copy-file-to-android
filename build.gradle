@@ -5,8 +5,8 @@ plugins {
   id 'org.jetbrains.intellij' version '1.3.0'
 }
 
-group 'org.intellij.sdk'
-version '2.0.0'
+group 'com.wasdjkl.pushfile'
+version '1.0.0'
 
 dependencies {
   // https://mvnrepository.com/artifact/com.android.ddmlib/ddmlib
@@ -33,4 +33,8 @@ patchPluginXml {
   version = project.version
   sinceBuild = '211'
   untilBuild = '213.*'
+}
+
+publishPlugin {
+  token = project.property("publicToken")
 }
