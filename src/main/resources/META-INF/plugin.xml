@@ -1,0 +1,52 @@
+<!-- Copyright 2000-2022 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. -->
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+
+<idea-plugin>
+  <!-- Unique id for this plugin. Must stay constant for the life of the plugin. -->
+  <id>com.wasdjkl.pushfile</id>
+
+  <version>0.0.1</version>
+
+  <!-- Text to display as name on Preferences/Settings | Plugin page -->
+  <name>Copy File to Android Device / 复制文件到安卓</name>
+
+  <!-- Indicate this plugin can be loaded in all IntelliJ Platform-based products. -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <!-- Text to display as description on Preferences/Settings | Plugin page -->
+  <description>
+    <![CDATA[
+      Copy file to Android devices, Shortcut keys shift+alt+c.
+      <br>
+      复制文件到 Android 设备，快捷键 shift+alt+c。
+    ]]>
+  </description>
+  <change-notes>
+    <![CDATA[
+      <ul>
+        <li><b>0.0.1</b> first version.</li>
+      </ul>
+    ]]>
+  </change-notes>
+
+  <!-- Text to display as company information on Preferences/Settings | Plugin page -->
+  <vendor url="https://www.wasdjkl.com">wasdjkl</vendor>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <notificationGroup id="Copy File to Android" displayType="BALLOON"/>
+  </extensions>
+
+  <!-- Declare the default resource location for localizing menu strings -->
+  <resource-bundle>messages.BasicActionsBundle</resource-bundle>
+
+  <actions>
+    <action id="com.wasdjkl.pushfile.action.Push" class="com.wasdjkl.pushfile.action.Push">
+      <add-to-group group-id="EditorPopupMenu" anchor="before" relative-to-action="EditorPaste"/>
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="ReplaceInPath"/>
+      <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="control shift C"/>
+    </action>
+  </actions>
+
+</idea-plugin>
