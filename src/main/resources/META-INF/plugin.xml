@@ -5,8 +5,6 @@
   <!-- Unique id for this plugin. Must stay constant for the life of the plugin. -->
   <id>com.wasdjkl.pushfile</id>
 
-  <version>1.0.1</version>
-
   <!-- Text to display as name on Preferences/Settings | Plugin page -->
   <name>Copy File to Android Device</name>
 
@@ -24,6 +22,7 @@
   <change-notes>
     <![CDATA[
       <ul>
+        <li><b>1.0.2</b> Remove deprecated functions.</li>
         <li><b>1.0.0</b> first version.</li>
       </ul>
     ]]>

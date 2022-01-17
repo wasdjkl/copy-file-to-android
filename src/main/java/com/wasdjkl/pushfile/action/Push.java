@@ -10,6 +10,7 @@ import com.wasdjkl.pushfile.android.DeviceChangeListener;
 import com.wasdjkl.pushfile.settings.AppSettingsState;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author wasdjkl
@@ -20,7 +21,7 @@ public class Push extends AnAction {
 
     public Push() {
         AndroidDebugBridge.init(false);
-        AndroidDebugBridge.createBridge();
+        AndroidDebugBridge.createBridge(9223372036854775807L, TimeUnit.MILLISECONDS);
         deviceChangeListener = new DeviceChangeListener();
         AndroidDebugBridge.addDeviceChangeListener(deviceChangeListener);
     }
@@ -62,7 +63,7 @@ public class Push extends AnAction {
 
     private void showNotification(String content, NotificationType notificationType) {
         String title = "Copy File to Android device";
-        Notification notification = notificationGroup.createNotification(title, content, notificationType, null);
+        Notification notification = notificationGroup.createNotification(title, content, notificationType);
         Notifications.Bus.notify(notification);
     }
 }
