@@ -5,10 +5,10 @@
   <!-- Unique id for this plugin. Must stay constant for the life of the plugin. -->
   <id>com.wasdjkl.pushfile</id>
 
-  <version>0.0.1</version>
+  <version>1.0.1</version>
 
   <!-- Text to display as name on Preferences/Settings | Plugin page -->
-  <name>Copy File to Android Device / 复制文件到安卓设备</name>
+  <name>Copy File to Android Device</name>
 
   <!-- Indicate this plugin can be loaded in all IntelliJ Platform-based products. -->
   <depends>com.intellij.modules.platform</depends>
