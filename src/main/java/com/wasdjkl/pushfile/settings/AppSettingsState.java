@@ -1,42 +1,40 @@
-// Copyright 2000-2022 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
-
 package com.wasdjkl.pushfile.settings;
 
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
+import com.intellij.openapi.project.Project;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Supports storing the application settings in a persistent way.
- * The {@link State} and {@link Storage} annotations define the name of the data and the file name where
- * these persistent application settings are stored.
+ * @author wasdjkl
  */
 @State(
-        name = "com.wasdjkl.pushfile.settings.AppSettingsState",
+        name = "CopyFileToAndroidSettings",
+//        storages = {@Storage(StoragePathMacros.WORKSPACE_FILE)}
         storages = @Storage("CopyFileToAndroidSettings.xml")
 )
 public class AppSettingsState implements PersistentStateComponent<AppSettingsState> {
 
-  public String resourcePath = "D:\\";
-  public String remotePath = "/sdcard/";
+    public String localPath = "D:\\";
+    public String remotePath = "/sdcard/";
 
-  public static AppSettingsState getInstance() {
-    return ApplicationManager.getApplication().getService(AppSettingsState.class);
-  }
+    public static AppSettingsState getSafeInstance(Project project) {
+        AppSettingsState settings = project.getService(AppSettingsState.class);
+        return settings != null ? settings : new AppSettingsState();
+    }
 
-  @Nullable
-  @Override
-  public AppSettingsState getState() {
-    return this;
-  }
+    @Nullable
+    @Override
+    public AppSettingsState getState() {
+        return this;
+    }
 
-  @Override
-  public void loadState(@NotNull AppSettingsState state) {
-    XmlSerializerUtil.copyBean(state, this);
-  }
+    @Override
+    public void loadState(@NotNull AppSettingsState state) {
+        XmlSerializerUtil.copyBean(state, this);
+    }
 
 }

@@ -13,8 +13,7 @@ if (!hasProperty('StudioCompilePath')) {
 }
 
 dependencies {
-//  implementation group: 'com.android.ddmlib', name: 'ddmlib', version: 'r16'
-  compileOnly fileTree(dir: "$StudioCompilePath/plugins/android/lib", include: ['*.jar'])
+  implementation group: 'com.android.ddmlib', name: 'ddmlib', version: 'r16'
 }
 
 sourceCompatibility = 11
@@ -34,7 +33,7 @@ buildSearchableOptions {
 
 patchPluginXml {
   version = project.version
-  sinceBuild = '173'
+  sinceBuild = '212'
   untilBuild = '213.*'
 }
 

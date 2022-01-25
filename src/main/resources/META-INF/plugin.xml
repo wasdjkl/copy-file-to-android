@@ -36,7 +36,7 @@
     <projectConfigurable id="Copy File to Android Settings"
                        displayName="Copy File to Android Settings"
                        instance="com.wasdjkl.pushfile.settings.AppSettingsConfigurable"/>
-    <applicationService serviceImplementation="com.wasdjkl.pushfile.settings.AppSettingsState"/>
+    <projectService serviceImplementation="com.wasdjkl.pushfile.settings.AppSettingsState" />
   </extensions>
 
   <!-- Declare the default resource location for localizing menu strings -->
