@@ -53,7 +53,7 @@ public class Push extends AnAction {
         }
         try {
             pushFile(srcFilePath, destFilePath);
-            showNotification(new StringBuilder().append("Copy ").append(srcFilePath).append(" to ").append(destFilePath).toString(), NotificationType.INFORMATION);
+            showNotification("Copy " + srcFilePath + " to " + destFilePath, NotificationType.INFORMATION);
         } catch (Exception ex) {
             showNotification(ex.getLocalizedMessage(), NotificationType.ERROR);
             ex.printStackTrace();
@@ -65,7 +65,7 @@ public class Push extends AnAction {
     }
 
     private void showNotification(String content, NotificationType notificationType) {
-        String title = "Copy File To Android";
+        @SuppressWarnings("DialogTitleCapitalization") String title = "Copy File To Android";
         Notification notification = notificationGroup.createNotification(title, content, notificationType);
         Notifications.Bus.notify(notification);
     }

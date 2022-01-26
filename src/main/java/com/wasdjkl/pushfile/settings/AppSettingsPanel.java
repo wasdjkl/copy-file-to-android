@@ -3,10 +3,11 @@ package com.wasdjkl.pushfile.settings;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
+/**
+ * @author wasdjkl
+ */
 public class AppSettingsPanel {
     private JButton choosePathButton;
     private JTextField localPath;
@@ -14,15 +15,12 @@ public class AppSettingsPanel {
     private JPanel jPanel;
 
     public AppSettingsPanel() {
-        choosePathButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-                fileChooser.showOpenDialog(choosePathButton);
-                File file = fileChooser.getSelectedFile();
-                localPath.setText(file.getPath());
-            }
+        choosePathButton.addActionListener(e -> {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            fileChooser.showOpenDialog(choosePathButton);
+            File file = fileChooser.getSelectedFile();
+            localPath.setText(file.getPath());
         });
     }
 

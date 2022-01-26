@@ -6,7 +6,7 @@
   <id>com.wasdjkl.pushfile</id>
 
   <!-- Text to display as name on Preferences/Settings | Plugin page -->
-  <name>Copy File to Android Device</name>
+  <name>Copy Files to Android</name>
 
   <!-- Indicate this plugin can be loaded in all IntelliJ Platform-based products. -->
   <depends>com.intellij.modules.platform</depends>
@@ -14,16 +14,26 @@
   <!-- Text to display as description on Preferences/Settings | Plugin page -->
   <description>
     <![CDATA[
-      Copy file to Android devices, Shortcut keys ctrl+shift+c TAB, control button3 doubleClick.
-      <br>
-      复制文件到 Android 设备，键盘快捷键 ctrl+shift+c TAB,鼠标快捷键 ctrl + 双击鼠标右键。
+    Enable adb debugging on your device <br/>
+    To use the plugin, you mus enable USB debugging in the device system settings, under Developer options. <br/>
+    How the plugin works <br/>
+    Copy arbitrary directories and files to any location in the device using the push command <br/>
+    How to use <br/>
+    Press the key combination ctrl+shift+c and press TAB, or press ctrl and double click the right mouse button <br/>
+    在你的设备上启用adb调试 <br/>
+    要使用该插件，你必须在设备的系统设置中启用USB调试，在开发选项下。 <br/>
+    该插件如何工作 <br/>
+    使用推送命令将任意的目录和文件复制到设备的任何位置 <br/>
+    如何使用 <br/>
+    按组合键ctrl+shift+c并按TAB键，或者按ctrl键并双击鼠标右键 <br/>
     ]]>
   </description>
   <change-notes>
     <![CDATA[
       <ul>
+        <li><b>1.0.3</b> Application service change to project service.</li>
         <li><b>1.0.2</b> Remove deprecated functions.</li>
-        <li><b>1.0.0</b> first version.</li>
+        <li><b>1.0.0</b> First version.</li>
       </ul>
     ]]>
   </change-notes>

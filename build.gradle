@@ -1,16 +1,10 @@
-// Copyright 2000-2022 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
-
 plugins {
   id 'java'
   id 'org.jetbrains.intellij' version '1.3.0'
 }
 
 group 'com.wasdjkl.pushfile'
-version '1.0.2'
-
-if (!hasProperty('StudioCompilePath')) {
-  throw new GradleException("No StudioCompilePath value was set, please create gradle.properties file")
-}
+version '1.0.3'
 
 dependencies {
   implementation group: 'com.android.ddmlib', name: 'ddmlib', version: 'r16'
